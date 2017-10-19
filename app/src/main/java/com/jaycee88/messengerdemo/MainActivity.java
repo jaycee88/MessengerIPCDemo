@@ -50,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bindService() {
+        // 应用内跨进程通信
         Intent intent = new Intent(this, MessengerService.class);
         bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+        // 跨应用的进程间通信--隐式意图
+//        intent = new Intent();
+//        intent.setPackage("com.jaycee88.ipcservice");
+//        intent.setAction("myMessenger");
     }
 
     public void unbindService() {
